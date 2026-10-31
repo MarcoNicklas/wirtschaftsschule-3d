@@ -1,0 +1,3 @@
+const base=new URL(self.registration.scope),cacheName='school-unlocked-'+base.pathname;
+self.addEventListener('install',()=>self.skipWaiting());self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));
+self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(u.origin!==base.origin||!u.pathname.startsWith(base.pathname+'app/'))return;e.respondWith((async()=>{const c=await caches.open(cacheName);u.search='';const response=await c.match(u.href);if(response)return response;if(e.request.mode==='navigate')return Response.redirect(base.href);return new Response('Bitte Schulwegweiser entsperren.',{status:401})})())});
