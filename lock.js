@@ -1,1 +1,1 @@
-document.getElementById('lock-school').onclick=async()=>{const base=new URL('../',location.href);await caches.delete('school-unlocked-'+base.pathname);location.replace(base)};
+const lockButton=document.getElementById('lock-school');lockButton.removeAttribute('style');lockButton.textContent='Zugang sperren';document.querySelector('.options-popover')?.append(lockButton);lockButton.onclick=async()=>{const base=new URL('../',location.href);await caches.delete('school-unlocked-'+base.pathname);location.replace(base)};
