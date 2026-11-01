@@ -1,3 +1,5 @@
-const base=new URL(self.registration.scope),cacheName='school-unlocked-'+base.pathname;
-self.addEventListener('install',()=>self.skipWaiting());self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));
+const version='390c65f21f170bf5',base=new URL(self.registration.scope),prefix='school-unlocked-'+base.pathname,cacheName=prefix+version;
+self.addEventListener('install',()=>self.skipWaiting());
+self.addEventListener('message',e=>{if(e.data?.type==='school-version')e.ports[0]?.postMessage({version})});
+self.addEventListener('activate',e=>e.waitUntil((async()=>{for(const key of await caches.keys())if((key===prefix||(key.startsWith(prefix)&&/^[a-f0-9]{16}$/.test(key.slice(prefix.length))))&&key!==cacheName)await caches.delete(key);await self.clients.claim();for(const client of await self.clients.matchAll({type:'window'})){const u=new URL(client.url);if(u.origin===base.origin&&u.pathname.startsWith(base.pathname+'app/'))await client.navigate(base.href+'?update=1&v='+version)}})()));
 self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(u.origin!==base.origin||!u.pathname.startsWith(base.pathname+'app/'))return;e.respondWith((async()=>{const c=await caches.open(cacheName);u.search='';const response=await c.match(u.href);if(response)return response;if(e.request.mode==='navigate')return Response.redirect(base.href);return new Response('Bitte Schulwegweiser entsperren.',{status:401})})())});
