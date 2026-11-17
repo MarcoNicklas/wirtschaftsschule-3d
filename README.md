@@ -3,9 +3,10 @@
 Öffentliche Website ohne Passwort mit Startseite, 3D-Schulmodell, Raumauswahl,
 Wegführung in Etappen und verlinkter 360°-Tour.
 
-Die Luftansicht ist eine Illustration. Das Schulmodell dient der Orientierung;
-die Lehrkräfte-Zuordnung ist als Probe gekennzeichnet, bis die Schule die
-Zuordnung für den Elternsprechtag festlegt.
+Die Luftansicht ist eine Illustration. Der Wegweiser zeigt am Elternsprechtag
+die veröffentlichte Raumbelegung mit den angegebenen Zeitfenstern. Bei Räumen
+der Berufsschule nennt er den Eingang und die Raumnummer; wo die Lage im
+Modell ungeklärt ist, erscheint die Raumangabe ohne 3D-Route.
 
 ## Veröffentlichung
 
