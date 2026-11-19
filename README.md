@@ -4,7 +4,7 @@
 Wegführung in Etappen und verlinkter 360°-Tour.
 
 Die Luftansicht ist eine Illustration. Der Wegweiser zeigt am Elternsprechtag
-die veröffentlichte Raumbelegung mit den angegebenen Zeitfenstern. Bei Räumen
+die veröffentlichte Raumbelegung mit einer Suche nach Lehrkräften. Bei Räumen
 der Berufsschule nennt er den Eingang und die Raumnummer; wo die Lage im
 Modell ungeklärt ist, erscheint die Raumangabe ohne 3D-Route.
 
